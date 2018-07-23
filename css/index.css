@@ -1,0 +1,90 @@
+/************** Topo Geral ****************/
+html{
+    min-height:100%;
+}
+
+body{
+    height:100vh;
+}
+
+#editor { 
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.CodeMirror { 
+    height: 100%; 
+}
+
+.navbar{
+    position: fixed !important;
+}
+
+.questionNumber{
+    font-size: 30px;
+    color: #009fff;
+    font-family: monospace;
+}
+
+.instruction{
+    border-right: 1px dashed #333;  
+}
+
+.mt-01{
+    margin-top: 1rem;
+}
+
+.pad0{
+    padding: 0 !important;
+}
+
+.fullScreen{
+    height: 100%;
+    position: fixed !important;
+    margin-top: 51px;
+}
+
+.responseTitle{
+    border-bottom: 2px solid #80808080;
+    background: #f0f1f2;
+    display: flex;
+    padding: 5px 0px !important;
+}
+
+.btnActions{
+    padding: 5px;
+    background: #80808012;
+    display: flex;
+}
+
+.h3Mb0{
+    line-height: 33px;
+    margin-bottom: 0px;
+}
+
+#overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+    cursor: pointer;
+}
+
+#text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 50px;
+    line-height: 40px;  
+    color: white;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+}
