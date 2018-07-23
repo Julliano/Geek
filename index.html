@@ -27,7 +27,7 @@
         </div>
         <nav class="navbar fixed-top navbar-light bg-light pad0">
             <span class="col-md-6 col-lg-6 col-sm-6 col-xs-6 col-6 questionNumber" ng-model="questionNumber">      
-                {{questionNumber}}
+                {{question[0].number}}
             </span>
             </h2>
             <div class="col-md-4 col-lg-4 col-sm-2 col-xs-2 col-2" style="color: #009fff;">
@@ -39,15 +39,14 @@
                 </select>
             </div>
         </nav>
-
         <div class="col-md-12 col-lg-12 mt-01 fullScreen">
             <div class="row" style="height: 100%;">
                 <div class="col-md-5 col-lg-5 col-sm-6 col-xs-6 col-6 instruction">
                     <label>Essa é uma questão teste.</label>
                     <div>
-                        {{questionTitle}}
+                        {{question[0].questionTitle}}
                         <ul>
-                            <li ng-repeat="descrip in questionDescription" value="{{descrip}}">
+                            <li ng-repeat="descrip in question[0].questionDescription" value="{{descrip}}">
                                 {{descrip}}
                             </li>
                         </ul>

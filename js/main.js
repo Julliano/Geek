@@ -3,9 +3,7 @@ var myModule = angular.module("jullianoApp", [/* No Dependency Injection */]);
 myModule.controller("counterCtrl",['$scope','$timeout','$http', function($scope,$timeout,$http){
   
 	$scope.counter = 100;
-	$scope.questionNumber = '01';
-	$scope.questionTitle = 'Escreva a função: \n class Solução'
-	$scope.questionDescription = ['Escreva a função: \n class Solução', 'Crie uma calculadora com suas funções mais clássica']
+	$scope.question = [{number: '01', questionTitle: 'Escreva a função: \n class Solução', questionDescription: ['Escreva a função: \n class Solução', 'Crie uma calculadora com suas funções mais clássica']}]
 	$scope.langues = [{name:'Java', code: 'java', versionI: '0'}, {name:'C++', code: 'cpp', versionI: '0'}, {name:'PHP', code: 'php', versionI: '0'}, {name:'Python 2', code: 'python2', versionI: '0'}, {name:'COBOL', code: 'cobol', versionI: '0'}]
 	$scope.response = 'Você precisa clicar em "Enviar" para obter um retorno';
 	$scope.langue = null;
@@ -52,7 +50,7 @@ myModule.controller("counterCtrl",['$scope','$timeout','$http', function($scope,
 		    "clientSecret":"88ee4f1ca0226d4ce717550904438c259793fefb40e54998f1b9c99e1afb31be" 
 			}
 		}
-		
+
 		console.log(editor.getValue())
 		$http(req).then(function(response){
 			if(response.data.output == ''){
