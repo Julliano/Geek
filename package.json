@@ -2,9 +2,11 @@
   "name": "geek",
   "version": "1.0.0",
   "description": "Geekhunter project",
-  "main": "gulpfile.js",
+  "main": "dist/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start" : "src/index.js",
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
@@ -23,9 +25,5 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.2.0"
-  },
-  "scripts": {
-	  "dev": "webpack --mode development",
-    "build": "webpack --mode production"
   }
 }
