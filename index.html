@@ -2,19 +2,35 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Test approval</title>
+        <title>GeekHunter test</title>
         <meta name="description" content="">
 
-        <link rel="stylesheet" href="css/codemirror.css">
-        <link rel="stylesheet" href="css/index.css">
-        <link rel="stylesheet" href="css/app.css">
-        
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
-        <script src="js/app.js"></script>
-        <script src="js/main.js"></script>
-        <script src="js/codemirror.js"></script>
+         <!-- favicons -->
+        <link rel="shortcut icon" href="images/gh.png">
 
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+        <!-- Angular core -->
+        <script src="node_modules/angular/angular.min.js"></script>
+
+        <!-- Js geekhunter -->
+        <script src="src/app.js"></script>
+
+        <!-- Js do projeto -->
+        <script src="dist/main.js"></script>
+
+        <!-- Js CodeMirror -->
+        <script src="src/codemirror.js"></script>
+
+        <!-- Css CodeMirror -->
+        <link rel="stylesheet" href="css/codemirror.css">
+
+        <!-- Css projeto -->
+        <link rel="stylesheet" href="css/index.css">
+        
+        <!-- Css geekhunter -->
+        <link rel="stylesheet" href="css/app.css">
+
+        <!-- Css FontAwesome -->
+        <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css">
 
     </head>
     <body ng-app="jullianoApp" ng-controller="counterCtrl">
@@ -25,22 +41,24 @@
                 <small>Você perderá todo seu processo!</small>
             </div>
         </div>
-        <nav class="navbar fixed-top navbar-light bg-light pad0">
+        <nav class="navbar fixed-top navbar-light bg-light p-0">
             <span class="col-md-6 col-lg-6 col-sm-6 col-xs-6 col-6 questionNumber" ng-model="questionNumber">      
                 {{question[0].number}}
             </span>
-            </h2>
-            <div class="col-md-4 col-lg-4 col-sm-2 col-xs-2 col-2" style="color: #009fff;">
+            
+            <div class="col-md-4 col-lg-4 col-sm-2 col-xs-2 col-2" ng-class="corCounter()">
                 <i class="fas fa-clock"></i>
-                <span ng-bind="counter"></span> sec
+                <span ng-bind="counter"></span> sec  
+                <span class="badge badge-danger" ng-show="counter < 21">Seu tempo está acabando</span>
             </div>    
             <div class="col-md-2 col-lg-2 col-sm-4 col-xs-4 col-4 text-right">
                 <select class="form-control" ng-init="langue = langues[0]" ng-model="langue" ng-options="lang.name for lang in langues">
                 </select>
             </div>
         </nav>
-        <div class="col-md-12 col-lg-12 mt-01 fullScreen">
-            <div class="row" style="height: 100%;">
+       
+        <div class="col-md-12 col-lg-12 fullScreen">
+            <div class="row h100">
                 <div class="col-md-5 col-lg-5 col-sm-6 col-xs-6 col-6 instruction">
                     <label>Essa é uma questão teste.</label>
                     <div>
@@ -53,22 +71,32 @@
                         
                     </div>
                 </div>
-                <div class="col-md-7 col-lg-7 col-sm-6 col-xs-6 col-6 pad0">
+                <div class="col-md-7 col-lg-7 col-sm-6 col-xs-6 col-6 p-0 h100">
                     <div class="btnActions">
                         <div class="col-md-6 col-6" style="line-height: 33px;"> Solução em: {{langue.name}}</div>
                     </div>
-                    <div class="col-md-12 pad0" style="height: 70%;">
+                    <div class="col-md-12 p-0 codeArea" ng-class="responseValid()">
                         <textarea id="myTextarea" ng-model="myTextarea"></textarea>
                     </div>
-                    <div class="col-md-12 pad0 responseTitle">
+                    <div class="col-md-12 p-0 responseTitle">
                         <h3 class="col-md-6 col-6 h3Mb0">Resolve</h3>
                         <div class="col-md-6 col-6 text-right">
                             <button class="btn btn-secondary btn-sm" ng-click="chamar()">
-                                <i class="fas fa-play"></i>
-                                Rodar script
+                                <div class="loading loading-white mr-2" ng-show="compilando">
+                                    <div class="bounce1"></div>
+                                    <div class="bounce2"></div>
+                                    <div class="bounce3"></div>
+                                </div>
+                                <i class="fas fa-play" ng-hide="compilando"></i>
+                                Testar script
                             </button>
                             <button class="btn btn-primary btn-sm">
-                                <i class="fas fa-check"></i>
+                                <div class="loading loading-white mr-2" ng-show="compilando">
+                                    <div class="bounce1"></div>
+                                    <div class="bounce2"></div>
+                                    <div class="bounce3"></div>
+                                </div>
+                                <i class="fas fa-check" ng-hide="compilando"></i>
                                 Enviar
                             </button>
                         </div>

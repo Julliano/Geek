@@ -1,0 +1,31 @@
+{
+  "name": "geek",
+  "version": "1.0.0",
+  "description": "Geekhunter project",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Julliano/Geek.git"
+  },
+  "author": "Julliano Volpato",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Julliano/Geek/issues"
+  },
+  "homepage": "https://github.com/Julliano/Geek#readme",
+  "devDependencies": {
+    "angular": "^1.6.2",
+    "webpack": "^4.16.2",
+    "webpack-cli": "^3.1.0"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.2.0"
+  },
+  "scripts": {
+	  "dev": "webpack --mode development",
+    "build": "webpack --mode production"
+  }
+}
