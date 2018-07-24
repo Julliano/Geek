@@ -1,10 +1,11 @@
 /************** Topo Geral ****************/
 html{
     min-height:100%;
+    position: relative;
 }
 
 body{
-    height:100vh;
+    height:100%;
 }
 
 #editor { 
@@ -25,7 +26,7 @@ body{
 
 .questionNumber{
     font-size: 30px;
-    color: #009fff;
+    color: #41A9B9;
     font-family: monospace;
 }
 
@@ -42,9 +43,16 @@ body{
 }
 
 .fullScreen{
-    height: 100%;
-    position: fixed !important;
-    margin-top: 51px;
+    height:calc(100vh - 10px);
+    padding-top: 51px;
+}
+
+.heightCalc{
+    height: calc(100% - 51px);
+}
+
+.h100{
+    height:100%
 }
 
 .responseTitle{
@@ -52,6 +60,27 @@ body{
     background: #f0f1f2;
     display: flex;
     padding: 5px 0px !important;
+}
+
+.codeArea{
+    height: calc(100% - 102px);
+}
+
+.blueCounter{
+    color: #41A9B9;
+}
+
+.redCounter{
+    color: #E62F5C;     
+}
+
+.returnValid{
+    height: calc(100% - 300px) !important;
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    -ms-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
 }
 
 .btnActions{
@@ -74,7 +103,7 @@ body{
     right: 0;
     bottom: 0;
     background-color: rgba(0,0,0,0.5);
-    z-index: 2;
+    z-index: 10;
     cursor: pointer;
 }
 
